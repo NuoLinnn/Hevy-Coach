@@ -1,0 +1,166 @@
+<mxfile host="65bd71144e">
+    <diagram id="hevy-coach-modules" name="Modules">
+        <mxGraphModel dx="961" dy="1557" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1320" pageHeight="800" math="0" shadow="0">
+            <root>
+                <mxCell id="0"/>
+                <mxCell id="1" parent="0"/>
+                <mxCell id="title" parent="1" style="text;html=1;fontSize=18;align=left;verticalAlign=middle;" value="&lt;b&gt;hevy-coach&lt;/b&gt; — module layout (src/hevy_coach/)" vertex="1">
+                    <mxGeometry height="30" width="600" x="30" y="-780" as="geometry"/>
+                </mxCell>
+                <mxCell id="grpExt" parent="1" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeColor=#999999;verticalAlign=top;align=center;fontColor=#666666;" value="&lt;b&gt;Outside the package&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="620" width="180" x="10" y="-740" as="geometry"/>
+                </mxCell>
+                <mxCell id="grpIO" parent="1" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;dashed=1;fillColor=#f3f7fd;strokeColor=#6c8ebf;verticalAlign=top;align=center;" value="&lt;b&gt;I/O layer&lt;/b&gt;&lt;br&gt;talks to the terminal, files and network" vertex="1">
+                    <mxGeometry height="620" width="280" x="210" y="-740" as="geometry"/>
+                </mxCell>
+                <mxCell id="grpData" parent="1" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;dashed=1;fillColor=#fffbef;strokeColor=#d6b656;verticalAlign=top;align=center;" value="&lt;b&gt;Shared types &amp;amp; units&lt;/b&gt;&lt;br&gt;used by every module" vertex="1">
+                    <mxGeometry height="620" width="260" x="530" y="-740" as="geometry"/>
+                </mxCell>
+                <mxCell id="grpCore" parent="1" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;dashed=1;fillColor=#f4faf3;strokeColor=#82b366;verticalAlign=top;align=center;" value="&lt;b&gt;Core logic&lt;/b&gt;&lt;br&gt;pure functions, no I/O: most tests live here" vertex="1">
+                    <mxGeometry height="620" width="440" x="830" y="-740" as="geometry"/>
+                </mxCell>
+                <mxCell id="grpProg" parent="1" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;fillColor=none;strokeColor=#82b366;verticalAlign=top;align=left;spacingLeft=10;" value="&lt;b&gt;progression/&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="440" width="380" x="860" y="-580" as="geometry"/>
+                </mxCell>
+                <mxCell id="user" parent="1" style="shape=umlActor;verticalLabelPosition=bottom;verticalAlign=top;html=1;outlineConnect=0;fillColor=#f5f5f5;strokeColor=#666666;" value="&lt;b&gt;You&lt;/b&gt;&lt;br&gt;(terminal)" vertex="1">
+                    <mxGeometry height="60" width="30" x="85" y="-690" as="geometry"/>
+                </mxCell>
+                <mxCell id="toml" parent="1" style="shape=note;size=14;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="&lt;b&gt;hevy-coach.toml&lt;/b&gt;&lt;br&gt;modes, rep ranges,&lt;br&gt;increments (lb)" vertex="1">
+                    <mxGeometry height="80" width="140" x="30" y="-505" as="geometry"/>
+                </mxCell>
+                <mxCell id="api" parent="1" style="ellipse;shape=cloud;whiteSpace=wrap;html=1;fillColor=#f5f5f5;strokeColor=#666666;" value="&lt;b&gt;Hevy API&lt;/b&gt;&lt;br&gt;api.hevyapp.com/v1&lt;br&gt;(weights in kg)" vertex="1">
+                    <mxGeometry height="100" width="160" x="20" y="-320" as="geometry"/>
+                </mxCell>
+                <mxCell id="cli" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;cli.py&lt;/b&gt;&lt;br&gt;hevy-coach plan --routine NAME [--apply]&lt;br&gt;entry point, wires the modules together; dry run by default" vertex="1">
+                    <mxGeometry height="80" width="220" x="240" y="-695" as="geometry"/>
+                </mxCell>
+                <mxCell id="report" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;report.py&lt;/b&gt;&lt;br&gt;before / after table, warnings (e.g. no RPE)" vertex="1">
+                    <mxGeometry height="60" width="220" x="240" y="-595" as="geometry"/>
+                </mxCell>
+                <mxCell id="config" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;config.py&lt;/b&gt;&lt;br&gt;load + validate TOML; mode per routine, override per exercise; clear errors" vertex="1">
+                    <mxGeometry height="80" width="220" x="240" y="-505" as="geometry"/>
+                </mxCell>
+                <mxCell id="client" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="&lt;b&gt;client.py&lt;/b&gt;&lt;br&gt;HevyClient (httpx): api-key header, pagination, 401 → &quot;check key / Pro plan&quot;&lt;br&gt;get_workouts · get_routines · put_routine" vertex="1">
+                    <mxGeometry height="100" width="220" x="240" y="-320" as="geometry"/>
+                </mxCell>
+                <mxCell id="models" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;b&gt;models.py&lt;/b&gt;&lt;br&gt;typed dataclasses: Workout, Exercise, Set (type, reps, weight_lb, rpe), Routine, Prescription, Plan" vertex="1">
+                    <mxGeometry height="100" width="220" x="550" y="-695" as="geometry"/>
+                </mxCell>
+                <mxCell id="units" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" value="&lt;b&gt;units.py&lt;/b&gt;&lt;br&gt;kg ↔ lb (only at the API boundary); round to plate increment (5 / 2.5 lb)" vertex="1">
+                    <mxGeometry height="100" width="220" x="550" y="-320" as="geometry"/>
+                </mxCell>
+                <mxCell id="history" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;history.py&lt;/b&gt;&lt;br&gt;recent sessions per exercise; drop warm-up sets" vertex="1">
+                    <mxGeometry height="70" width="180" x="860" y="-685" as="geometry"/>
+                </mxCell>
+                <mxCell id="planner" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;planner.py&lt;/b&gt;&lt;br&gt;pick rule by mode, build Plan + updated Routine" vertex="1">
+                    <mxGeometry height="70" width="180" x="1060" y="-685" as="geometry"/>
+                </mxCell>
+                <mxCell id="base" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;base.py&lt;/b&gt;&lt;br&gt;Rule protocol: next(history, settings) → Prescription" vertex="1">
+                    <mxGeometry height="60" width="340" x="880" y="-545" as="geometry"/>
+                </mxCell>
+                <mxCell id="bb" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;bodybuilding.py&lt;/b&gt;&lt;br&gt;double progression in rep range;&lt;br&gt;deload after N stalled sessions" vertex="1">
+                    <mxGeometry height="110" width="160" x="880" y="-435" as="geometry"/>
+                </mxCell>
+                <mxCell id="pl" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;powerlifting.py&lt;/b&gt;&lt;br&gt;top set = e1RM × %;&lt;br&gt;back-offs −X%;&lt;br&gt;deload after N e1RM drops; skip if no RPE" vertex="1">
+                    <mxGeometry height="110" width="160" x="1060" y="-435" as="geometry"/>
+                </mxCell>
+                <mxCell id="rpe" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" value="&lt;b&gt;rpe.py&lt;/b&gt;&lt;br&gt;RPE → % table;&lt;br&gt;e1rm(weight, reps, rpe)" vertex="1">
+                    <mxGeometry height="80" width="160" x="1060" y="-270" as="geometry"/>
+                </mxCell>
+                <mxCell id="tests" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" value="&lt;b&gt;tests/&lt;/b&gt;   fixtures/*.json recorded from my account · pytest-httpx mocks for client.py · golden files for CLI output · one test file per module · &lt;i&gt;uv run pytest&lt;/i&gt; runs offline" vertex="1">
+                    <mxGeometry height="50" width="1060" x="210" y="-90" as="geometry"/>
+                </mxCell>
+                <mxCell id="e1" edge="1" parent="1" source="user" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="cli" value="runs">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e2" edge="1" parent="1" source="report" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0;exitY=0.5;entryX=1;entryY=1;entryDx=0;entryDy=0;" target="user" value="prints">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="150" y="-565"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e3" edge="1" parent="1" source="cli" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="report" value="Plan">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e4" edge="1" parent="1" source="toml" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="config" value="reads">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e5" edge="1" parent="1" source="config" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=1;exitY=0.5;entryX=1;entryY=0.75;entryDx=0;entryDy=0;" target="cli" value="Config">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="480" y="-465"/>
+                            <mxPoint x="480" y="-635"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e6" edge="1" parent="1" source="client" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=block;endArrow=block;" target="api" value="HTTPS / JSON">
+                    <mxGeometry relative="1" y="10" as="geometry">
+                        <mxPoint as="offset"/>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e7" edge="1" parent="1" source="cli" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0.25;exitY=1;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" target="client" value="fetch; PUT only with --apply">
+                    <mxGeometry relative="1" x="0.1685" y="-10" as="geometry">
+                        <mxPoint as="offset"/>
+                        <Array as="points">
+                            <mxPoint x="295" y="-605"/>
+                            <mxPoint x="220" y="-605"/>
+                            <mxPoint x="220" y="-360"/>
+                            <mxPoint x="295" y="-360"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e8" edge="1" parent="1" source="client" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="units" value="kg → lb on read&lt;br&gt;lb → kg on write">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e9" edge="1" parent="1" source="client" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=1;exitY=0.25;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="models" value="parses into">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="510" y="-295"/>
+                            <mxPoint x="510" y="-380"/>
+                            <mxPoint x="660" y="-380"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e10" edge="1" parent="1" source="cli" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="planner" value="routine + workouts + config">
+                    <mxGeometry relative="1" x="0.1744" as="geometry">
+                        <mxPoint as="offset"/>
+                        <Array as="points">
+                            <mxPoint x="350" y="-720"/>
+                            <mxPoint x="1150" y="-720"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="e11" edge="1" parent="1" source="planner" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="history" value="">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e12" edge="1" parent="1" source="planner" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.75;entryY=0;entryDx=0;entryDy=0;" target="base" value="per exercise">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e13" edge="1" parent="1" source="bb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=0;dashed=1;" target="base" value="implements">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e14" edge="1" parent="1" source="pl" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=0;dashed=1;" target="base" value="implements">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e15" edge="1" parent="1" source="pl" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;" target="rpe" value="e1RM">
+                    <mxGeometry relative="1" as="geometry"/>
+                </mxCell>
+                <mxCell id="e16" edge="1" parent="1" source="bb" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;exitX=0;exitY=0.75;exitDx=0;exitDy=0;entryX=1;entryY=0.5;entryDx=0;entryDy=0;" target="units" value="round to plates">
+                    <mxGeometry relative="1" as="geometry">
+                        <Array as="points">
+                            <mxPoint x="810" y="-352"/>
+                            <mxPoint x="810" y="-270"/>
+                        </Array>
+                    </mxGeometry>
+                </mxCell>
+                <mxCell id="legend" parent="1" style="text;html=1;fontSize=11;align=left;verticalAlign=middle;fontColor=#666666;" value="solid arrow = calls / passes data &amp;nbsp;·&amp;nbsp; dashed hollow arrow = implements the Rule protocol" vertex="1">
+                    <mxGeometry height="20" width="600" x="210" y="-30" as="geometry"/>
+                </mxCell>
+                <mxCell id="TwrHj85OFlL19taoITcZ-1" parent="1" style="rounded=1;arcSize=4;whiteSpace=wrap;html=1;dashed=1;fillColor=none;strokeColor=#999999;verticalAlign=top;align=center;fontColor=#666666;" value="&lt;b&gt;Outside the package&lt;/b&gt;" vertex="1">
+                    <mxGeometry height="620" width="180" x="10" y="-790" as="geometry"/>
+                </mxCell>
+            </root>
+        </mxGraphModel>
+    </diagram>
+</mxfile>
