@@ -29,7 +29,7 @@ list or the set count of a routine, and any units other than lb for the user.
 ## 2. Installation and use
 
 ```bash
-uv pip install git+https://github.com/<user>/Hevy-Coach
+uv pip install git+https://github.com/NuoLinnn/Hevy-Coach
 export HEVY_API_KEY=...            # from Hevy → Settings → Developer
 hevy-coach plan --routine "Push A"           # dry run: prints the plan only
 hevy-coach plan --routine "Push A" --apply   # also updates the routine in Hevy
